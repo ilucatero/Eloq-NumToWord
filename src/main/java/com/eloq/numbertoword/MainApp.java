@@ -1,4 +1,4 @@
-package com.eloq.numbertoword;
+package com.eloq.numbertoword.en;
 
 
 import java.util.Scanner;
@@ -14,15 +14,14 @@ public class MainApp {
 
         try(Scanner scanner = new Scanner(System.in)) {
             do {
-                System.out.print("Write a number to convert (max value upto " + Long.MAX_VALUE + "): ");
+                System.out.print("Write a number to convert (max value upto " + Integer.MAX_VALUE + "): ");
                 try {
                     // read the number
                     number = scanner.nextInt();
                     if (number == 0) {
                         System.out.println("Zero");
                     } else {
-                        // TODO : convert number to word
-                        System.out.println(number);
+                        System.out.println(NumberToWordsConverter.convert(number));
                     }
 
                     scanner.nextLine(); // to consume the prev \n on nextLong
