@@ -1,4 +1,4 @@
-# Converts Numbers into Words
+# Convert Numbers into Words
 
 ## Requirements
 Checks or certain contracts for example, require to write the amounts in any letter.
@@ -15,15 +15,16 @@ Even if the application transform numbers with certain digits length, it has som
 
  - Number max value: It can transform number values within a java Integer.MAX_VALUE (upto 2 147 483 647).
    * Disclaimer : I use this max value because for a normal contract or check, a value grater than that is very unusual (in 
-        which case this app should be updated to Integer.MAX_VALUE (up to 9 quintillion).
+        which case this app should be updated to Long.MAX_VALUE (up to 9 quintillion).
+ - only positive values are accepted, otherwise an error is showed.
  - Zeros at the left are not considered (worth to say it).
  - As the requirement demands, no decimals are taken into account, only integers; so for a value of 12.3, it will be converted only the integer part (12).
  - Inverse mechanism is not provided (nor required).
  - Only english language is supported on conversion.
- - only positive values are accepted, otherwise zero will be showed.
 
-### Some useful information
-Some of the ideas for this algorithm I got them based on next link :
+
+### Useful / Interesting links
+Some of the ideas for the algorithm I am using here I got them from the next links :
   - http://mathforum.org/library/drmath/view/57113.html
   - http://www.blackwasp.co.uk/numbertowords.aspx
   - https://www.baeldung.com/java-number-of-digits-in-int
@@ -31,27 +32,31 @@ Some of the ideas for this algorithm I got them based on next link :
 
 ## Usage
 
+### Build
+
 To build this project use
 
 ```bash
     mvn clean install
 ```
 
-To run this project from within Maven use
+### Run
 
-```bash
+To run this project :
+
+  - as Maven goal use 
+    ```bash
     mvn exec:java
-```
+    ```
 
+  - (Quicky) or altogether use
 
-(Quicky) or altogether
-
-```bash
+    ```bash
     mvn clean install exec:java
-```
+    ```
 
-To run this project as JAR
+  - as JAR use
 
-```bash
+    ```bash
     java -jar dist/number-to-word.jar
-```
+    ```
