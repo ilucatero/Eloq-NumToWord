@@ -9,49 +9,59 @@
   <version>1.0-SNAPSHOT</version>
 
   <packaging>jar</packaging>
-  <name>Number to Word</name>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+    <maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+    <maven-exec-plugin.version>1.6.0</maven-exec-plugin.version>
+
+    <junit.version>4.12</junit.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
+    <finalName>${project.name}</finalName>
     <defaultGoal>install</defaultGoal>
 
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>3.1.0</version>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar-plugin.version}</version>
         <configuration>
-          <encoding>UTF-8</encoding>
+          <archive>
+            <manifest>
+              <mainClass>com.eloq.numbertoword.MainApp</mainClass>
+            </manifest>
+          </archive>
+          <outputDirectory>dist</outputDirectory>
         </configuration>
       </plugin>
+
 
       <!-- Allows the example to be run via 'mvn compile exec:java' -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>${maven-exec-plugin.version}</version>
         <configuration>
           <mainClass>com.eloq.numbertoword.MainApp</mainClass>
           <includePluginDependencies>false</includePluginDependencies>
