@@ -58,5 +58,5 @@ To run this project :
   - as JAR use
 
     ```bash
-    java -jar dist/number-to-word_1.0-SNAPSHOT.jar
+    java -jar dist/number-to-word_1.0.jar
     ```
