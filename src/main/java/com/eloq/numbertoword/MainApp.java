@@ -1,6 +1,7 @@
-package com.eloq.numbertoword.en;
+package com.eloq.numbertoword;
 
 
+import java.util.Locale;
 import java.util.Scanner;
 
 /**
@@ -8,25 +9,24 @@ import java.util.Scanner;
  */
 public class MainApp {
 
-    public static void main(String... args) throws Exception {
-        int number;
+    public static void main(String... args) {
+        Float number;
         boolean isTryAgain = true;
 
         try(Scanner scanner = new Scanner(System.in)) {
             do {
                 System.out.print("Write a number to convert (max value upto " + Integer.MAX_VALUE + "): ");
                 try {
+                    // set locale as US to always use dot instead comma (case of locale.FR)
+                    scanner.useLocale(Locale.US);
+
                     // read the number
-                    number = scanner.nextInt();
-                    if (number == 0) {
-                        System.out.println("Zero");
-                    } else {
-                        System.out.println(NumberToWordsConverter.convert(number));
-                    }
+                    number = scanner.nextFloat();
+                    System.out.println(NumberToWordsConverterEN.convert(number.intValue()));
 
                     scanner.nextLine(); // to consume the prev \n on nextLong
                 } catch (Exception e) {
-                    System.out.println("The typed value is not valid! \n Please try again.");
+                    System.out.println("The typed value is not valid! \n Please try again." + e);
                     scanner.nextLine(); // to consume the prev \n on nextLong
                     continue;
                 }
