@@ -49,14 +49,14 @@ To run this project :
     mvn exec:java
     ```
 
-  - (Quicky) or altogether use
+    - or altogether use
 
-    ```bash
-    mvn clean install exec:java
-    ```
+        ```bash
+        mvn clean install exec:java
+        ```
 
   - as JAR use
 
     ```bash
-    java -jar dist/number-to-word.jar
+    java -jar dist/number-to-word_1.0-SNAPSHOT.jar
     ```
